@@ -1,0 +1,26 @@
+# render.yaml — Render deployment configuration for UniBooks Exchange Backend
+# Deploy at: https://render.com
+
+services:
+  - type: web
+    name: unibooks-backend
+    env: python
+    region: singapore  # Choose closest to your users
+    plan: free         # Upgrade to paid for production
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SUPABASE_URL
+        sync: false   # Set manually in Render dashboard
+      - key: SUPABASE_KEY
+        sync: false   # Set manually in Render dashboard
+      - key: JWT_SECRET
+        generateValue: true  # Render auto-generates a secure value
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: JWT_EXPIRE_MINUTES
+        value: 10080
+      - key: FRONTEND_URL
+        sync: false   # Set to your Vercel frontend URL
+      - key: DEBUG
+        value: false
