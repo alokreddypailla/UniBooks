@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     jwt_expire_minutes: int = 10080  # 7 days
 
     # CORS
-    frontend_url: str = "http://localhost:5173"
+    frontend_url: str = "https://unibooks-frontend.vercel.app"
 
     # App
     app_name: str = "UniBooks Exchange"
