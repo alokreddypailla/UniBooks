@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "env": [
-    "VITE_API_URL"
-  ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
