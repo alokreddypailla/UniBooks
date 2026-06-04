@@ -36,11 +36,12 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        settings.frontend_url,          # Value from .env (currently http://localhost:5174)
-        "http://localhost:5173",         # Vite default port
-        "http://localhost:5174",         # Vite fallback port
-        "http://localhost:3000",         # Alternative dev port
-        "https://unibooks-exchange.vercel.app",  # Production frontend
+        settings.frontend_url,                   # Value from .env or Vercel env
+        "http://localhost:5173",                # Vite default port
+        "http://localhost:5174",                # Vite fallback port
+        "http://localhost:3000",                # Alternative dev port
+        "https://unibooks-exchange.vercel.app", # Production frontend alias
+        "https://unibooks-frontend.vercel.app", # Deployed frontend origin
     ],
     allow_credentials=True,
     allow_methods=["*"],
